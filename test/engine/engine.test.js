@@ -65,6 +65,9 @@ for (const fixture of fixtures) {
     onTransactionsChanged(transactionList) {
       // console.log('onTransactionsChanged:', transactionList)
       emitter.emit('onTransactionsChanged', transactionList)
+    },
+    onAddressChanged() {
+      emitter.emit('addressChanged')
     }
   }
 
@@ -204,6 +207,9 @@ const callbacks: EdgeCurrencyEngineCallbacks = {
   onTransactionsChanged(transactionList) {
     // console.log('onTransactionsChanged:', transactionList)
     emitter.emit('onTransactionsChanged', transactionList)
+  },
+  onAddressChanged() {
+    emitter.emit('addressChanged')
   }
 }
 

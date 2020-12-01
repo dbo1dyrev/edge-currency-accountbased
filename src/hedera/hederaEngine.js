@@ -197,6 +197,7 @@ export class HederaEngine extends CurrencyEngine {
     if (response.status === 'success') {
       this.walletLocalData.otherData.hederaAccount = response.account_id
       this.walletLocalDataDirty = true
+      this.currencyEngineCallbacks.onAddressChanged()
       this.accountId = new hedera.AccountId(response.account_id)
       await this.saveWalletLoop()
       delete this.timers.checkAccountCreationStatus
